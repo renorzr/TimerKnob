@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res/studio.reno.TimerKnob"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FF262626">
+        <com.admob.android.ads.AdView  
+			android:id="@+id/ad" 
+			android:visibility="gone"
+			android:layout_width="fill_parent" 
+			android:layout_height="50dp"
+			android:layout_alignParentTop="true"
+			app:backgroundColor="#000000" 
+			app:primaryTextColor="#FFFFFF" 
+			app:secondaryTextColor="#CCCCCC"
+			app:keywords="android"
+        />
+</LinearLayout>

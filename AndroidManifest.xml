@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="studio.reno.TimerKnob"
+      android:versionCode="1"
+      android:versionName="1.0">
+    <application android:icon="@drawable/icon" android:label="@string/app_name">
+        <activity android:name=".Main"
+                  android:label="@string/app_name" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.admob.android.ads.AdMobActivity" 
+              android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+              android:configChanges="orientation|keyboard|keyboardHidden"
+              />
+
+		<service android:enabled="true" android:name=".CountService" android:process=":remote">
+            <intent-filter>
+                <!-- These are the interfaces supported by the service, which
+                     you can bind to. -->
+                <action android:name="studio.reno.TimerKnob.ICountService" />
+                <!-- This is an action code you can use to select the service
+                     without explicitly supplying the implementation class. -->
+                <action android:name="studio.reno.TimerKnob.CountService" />
+            </intent-filter>
+		</service>
+
+		<!-- Track Market installs from AdMob ads -->		
+		<receiver android:name="com.admob.android.ads.analytics.InstallReceiver" android:exported="true">
+			<intent-filter>
+				<action android:name="com.android.vending.INSTALL_REFERRER" />
+			</intent-filter>
+		</receiver>
+		
+		<!-- The application's publisher ID assigned by AdMob -->
+	    <meta-data android:value="a14ce752289f62e" android:name="ADMOB_PUBLISHER_ID" />
+    	<!-- use a separate publisher id here to aid in tracking intersitial statistics -->
+    	<meta-data android:value="a14ce752289f62e" android:name="ADMOB_INTERSTITIAL_PUBLISHER_ID" />
+		
+    </application>
+    <uses-sdk android:minSdkVersion="5" />
+<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+<uses-permission android:name="android.permission.VIBRATE"></uses-permission>
+</manifest> 
